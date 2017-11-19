@@ -1,0 +1,19 @@
+{
+  "name": "dc2.0-client",
+  "version": "2.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MPastorMeseguer/dc2.0-client.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MPastorMeseguer/dc2.0-client/issues"
+  },
+  "homepage": "https://github.com/MPastorMeseguer/dc2.0-client#readme"
+}
