@@ -19,7 +19,7 @@ class App extends Component {
 
   constructor(props) {
     super(props);
-    this.socket = SocketIoClient('http://localhost:4200');
+    this.socket = SocketIoClient(`${process.env.REACT_APP_BACKEND_URI}`);
     this.state = {
       outputText: '',
       inputText: '',
@@ -68,7 +68,7 @@ class App extends Component {
     } else if (!this.refs.name.value) {
       alert(`Can't save a snippet with no title! Please enter one!`);
     } else {
-    axios.post('http://192.168.0.101:4200/snippet/save', {
+    axios.post(`${process.env.REACT_APP_BACKEND_UR}I/snippet/save`, {
     code: this.state.inputText,
     userId: this.state.id,
     title: this.refs.name.value
@@ -96,7 +96,7 @@ class App extends Component {
 
   sendToBack = (res) => {
     console.log('send', res);
-    axios.post('http://192.168.0.101:4200/login', {
+    axios.post(`${process.env.REACT_APP_BACKEND_URI}/login`, {
       ...res,
     })
   }
@@ -145,7 +145,7 @@ class App extends Component {
 
   sendToBack = (res) => {
     console.log('send', res);
-    axios.post('http://192.168.0.101:4200/login', {
+    axios.post(process.env.BACKEND_URI + '/login', {
       ...res,
     })
   }
@@ -155,7 +155,7 @@ class App extends Component {
       } else if (!this.refs.name.value) {
         alert(`Can't save a snippet with no title! Please enter one!`);
       } else {
-      axios.post('http://192.168.0.101:4200/snippet/save', {
+      axios.post(process.env.BACKEND_URI + '/snippet/save', {
         code: this.state.inputText,
         userId: this.state.id,
         title: this.refs.name.value
