@@ -14,14 +14,15 @@ class Save extends Component {
         <input
           ref={el => this.value = el}
           className="snippetName"
-          placeholder="ENTER SNIPPET NAME"
+          placeholder="Name your snippet"
+          maxLength="12"
         />
-        <button
+        <div
           ref = "savingBut"
           className="savingBut"
           onClick={() => this.props.func(this.value)}>
-          <img className="SaveIcon" alt="save" src={require('./assets/save.png')} />
-        </button>
+          <p className='savingText'>save</p>
+        </div>
       </div>
     );
   }

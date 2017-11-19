@@ -38,6 +38,7 @@ class App extends Component {
       selected: 'editor',
       id: '',
       name: '',
+      picture: null,
     }
   }
 
@@ -73,11 +74,12 @@ class App extends Component {
   }
 
   responseFacebook = (res) => {
-    console.log(res);
+    console.log(res, '---------');
     if (res.name) {
       this.setState({
         name: res.name,
-        id: res.id
+        id: res.id,
+        picture: res.picture.data.url
         })
       this.sendToBack(res);
     }
@@ -150,19 +152,8 @@ class App extends Component {
       <Save func={this.saveSnip.bind(this)} /> : null
   }
 
-  renderSnip = () => {
-    return this.state.id ?
-      <div>
-        <div
-          className={`Tab${this.state.selected === 'snippets'
-            ? ' Selected'
-            : ''}`}
-          onClick={() => this.handleTabSelection('snippets')}> snippets
-        </div>
-      </div> : null
-  }
-
   render() {
+    console.log(this.state, 'asdasdasdasd');
     return (
       <div className="App">
         <About
@@ -171,9 +162,9 @@ class App extends Component {
         <nav className="Header">
           <div className="MaxWidth">
             <LogoAnim />
-            <div className="button-wrapper" style={{display:'flex', width:'380px', flexFlow:'row nowrap', alignItems:'center', justifyContent:'space-around'}}>
+            <div className="button-wrapper" style={{display:'flex', width:'380px', flexFlow:'row nowrap', alignItems:'center', justifyContent:'flex-end'}}>
               {this.state.name ? (
-                <div>Welcome {this.state.name} </div>
+                <img src={this.state.picture} style={{width:'40px', borderRadius:'20px'}}/>
               ) : (
                 <FacebookLogin
                   cssClass="Facebook"
@@ -184,14 +175,15 @@ class App extends Component {
                   callback={this.responseFacebook}
                 />
               )}
-              <div className="about-button" onClick={this.handleAboutClick}>
-                <p className="about-button-text">ABOUT</p>
+              <div className="about-button" onClick={this.handleAboutClick} style={{marginLeft:'20px'}}>
+                <p className="about-button-text">About</p>
               </div>
               <div style={{
                 display: 'flex',
                 alignItems: 'center',
                 flexFlow: 'row nowrap',
-                width: '90px'
+                width: '90px',
+                marginLeft:'20px'
               }}>
                 <div className="lang-button"
                   style={{
@@ -213,7 +205,6 @@ class App extends Component {
             <div className="Explanation">
               <p style={{
                 textAlign: 'center',
-                fontSize: '30px',
                 width: '100%'
               }}>
                 Welcome to uncode! The first platform that simplifies and translates
@@ -233,8 +224,12 @@ class App extends Component {
                     ? ' Selected'
                     : ''}`}
                   onClick={() => this.handleTabSelection('upload')}>upload</div>
-                {this.renderSnip()}
-              </div>
+                <div
+                  className={`Tab${this.state.selected === 'snippets'
+                    ? ' Selected'
+                    : ''}`}
+                  onClick={() => this.handleTabSelection('snippets')}>snippets</div>
+                </div>
               {this.renderSave()}
             </div>
             <div className="Form">
