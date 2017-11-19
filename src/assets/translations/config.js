@@ -17,4 +17,4 @@ class Translations {
 }
 const translations = new Translations();
 
-export translations;
+export {translations};
