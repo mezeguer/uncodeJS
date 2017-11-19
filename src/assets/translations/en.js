@@ -17,6 +17,15 @@ const englishTranslations = {
   "drop_zone_explanation": "select a file or drag and drop one into the button to analyze it in uncode.js",
   "drop_zone_upload_button": "UPLOAD",
   "save_snpt_name_placeholder": "ENTER SNIPPET NAME",
+  "snippets_explanation": "Your Code Snippets",
+  "about_title": "MADE BY DEVELOPERS FOR FUTURE DEVELOPERS",
+  "about_text_1": "uncode.js is a tool for learning how to code JavaScript in the friendliest way possible: converting code into your own, (generally) more comfortable and easy to understand native language. Check the example below to understand how it works.",
+  "about_example_1": "var foo = 10 + 5;",
+  "about_example_2": "is uncoded into",
+  "about_example_3": "1 var variable foo is assigned to 10 plus 5",
+  "about_unsupported_title": "currently unsupported expressions",
+  "about_text_2": "In other words: simply start coding, copy in some code from elsewhere or drag and drop a text file in, watch our algorithm convert it into plain old english, spanish or italian (by selecting your language in the top right corner) and read what you just typed in terms anyone can understand. It really is that simple!"
+  "about_the_team": "The Team:"
 }
 
 export englishTranslations;
