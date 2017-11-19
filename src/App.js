@@ -151,7 +151,7 @@ class App extends Component {
   }
 
   renderSnip = () => {
-    return this.state.id && this.state.selected === 'editor' ?
+    return this.state.id ?
       <div>
         <div
           className={`Tab${this.state.selected === 'snippets'
