@@ -323,3 +323,28 @@ textarea {
   height: 75%;
   margin: auto;
 }
+
+.Example {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    border: 1px solid #46598F;
+    border-radius: 4px;
+    width: 500px;
+    height: 200px;
+    background-color: #edeaea;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+.UnsupportedList {
+  margin: 0;
+  margin-bottom: 15px;
+}
+
+li {
+  list-style: none;
+  padding: 0;
+  text-align: left;
+  margin-left: 20px;
+}

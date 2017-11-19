@@ -62,17 +62,28 @@ class About extends Component {
             </h3>
             <div style={{
               display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'space-around',
-              border: '1px solid #46598F',
-              borderRadius: '4px',
-              width: '500px',
-              height: '200px',
-              backgroundColor: '#edeaea'
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              width: '800px',
             }}>
-              <code>var foo = 10 + 5;</code>
-              <p style={{color: '#46598F', width: '100%', textAlign: 'center', fontWeight: '400'}}>is uncoded into</p>
-              <code>1 var variable foo is assigned to 10 plus 5</code>
+              <div className="Example">
+                <code>var foo = 10 + 5;</code>
+                <p style={{color: '#46598F', width: '100%', textAlign: 'center', fontWeight: '400'}}>is uncoded into</p>
+                <code>1 var variable foo is assigned to 10 plus 5</code>
+              </div>
+              <div className="Example">
+              <p style={{color: '#46598F', width: '100%', textAlign: 'center', fontWeight: '400', marginBottom:'0'}}>currently unsupported expressions</p>
+                <ul className="UnsupportedList">
+                  <li><code>try/catch/throw</code></li>
+                  <li><code>export/import</code></li>
+                  <li><code>with</code></li>
+                  <li><code>yield</code></li>
+                  <li><code>console statements</code></li>
+                  <li><code>async/await</code></li>
+                  <li><code>super()</code></li>
+                  <li><code>templates</code></li>
+                </ul>
+              </div>
             </div>
             <h3 className="about-text">
               In other words: simply start coding, copy in some code from elsewhere or 
