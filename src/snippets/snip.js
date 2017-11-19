@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import './snippets.css';
-import {  SnipIcon } from './snipicon';
+import { SnipIcon } from './snipicon';
+
 export class Snip extends Component {
   render() {
     console.log('asdasd', this.props);

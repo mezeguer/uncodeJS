@@ -14,7 +14,7 @@ export class Snippets extends Component {
 
   async componentDidMount() {
     console.log(this.props);
-    const response = await axios.get(`${process.env.REACT_APP_BACKEND_URI}/snippet/${this.props.id}`)
+    const response = await axios.get(`${process.env.REACT_APP_BACKEND_URI}/snipet/${this.props.id}`)
     .catch(e => console.log(e));
     if (response.data) this.setState({ snips:response.data.snippetList });
   }

@@ -32,6 +32,7 @@ h1 {
 }
 .bSave {
   display: flex;
+  width: 100%;
 }
 .about-button {
   width: 70px;
@@ -276,8 +277,12 @@ textarea {
 
 .TabSelector {
   display: flex;
-  width: 210px;
-  cursor: pointer;
+  width: 49.5%;
+}
+
+.Tabs {
+  display: flex;
+  /* width: 100%; */
 }
 
 .Tab {
@@ -285,10 +290,36 @@ textarea {
   font-weight: 300;
   line-height: 29px;
   height: 30px;
-  width:70px;
+  width:80px;
   background-color: rgb(224, 224, 224);
+  cursor: pointer;
 }
 
 .Selected {
   background-color: white;
+}
+
+.snippetName, .savingBut {
+  border: 0;
+  font-family: 'Roboto';
+}
+
+.snippetName {
+  padding-left: 10px;
+  width: 100%;
+  border-bottom: 1px solid #DFDFDF;
+}
+
+.savingBut {
+  width: 50px;
+  height: 30px;
+}
+
+.snippetName:focus, .savingBut:focus {
+  outline: none;
+}
+
+.SaveIcon {
+  height: 75%;
+  margin: auto;
 }

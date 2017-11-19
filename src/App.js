@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import FacebookLogin from 'react-facebook-login';
+import AlertContainer from 'react-alert'
 
 import { LogoAnim } from './logo/logo-anim';
 import { Snippets } from './snippets/snippets';
@@ -11,15 +12,24 @@ import axios from 'axios';
 import About from './About';
 
 import Text from './Text';
+import Save from './Save';
 import DragDrop from './Dropzone';
 
 import './App.css';
 
 class App extends Component {
 
+  alertOptions = {
+    offset: 14,
+    position: 'bottom left',
+    theme: 'dark',
+    time: 7000,
+    transition: 'scale'
+  }
+
   constructor(props) {
     super(props);
-    this.socket = SocketIoClient(`${process.env.REACT_APP_BACKEND_URI}`);
+    this.socket = SocketIoClient(process.env.REACT_APP_BACKEND_URI);
     this.state = {
       outputText: '',
       inputText: '',
@@ -62,27 +72,6 @@ class App extends Component {
     this.setState({selected: 'editor'});
   }
 
-  saveSnip = () => {
-    if (!this.state.inputText) {
-      alert(`Can't save empty code! Please write something`);
-    } else if (!this.refs.name.value) {
-      alert(`Can't save a snippet with no title! Please enter one!`);
-    } else {
-    axios.post(`${process.env.REACT_APP_BACKEND_UR}I/snippet/save`, {
-    code: this.state.inputText,
-    userId: this.state.id,
-    title: this.refs.name.value
-    }).then(res => {
-      console.log(res);
-      if (res.status === 203) {
-        alert('Snippet title is taken, please pick another one!');
-      } else {
-        this.refs.name.value = ''
-      }
-      })
-    }
-  }
-
   responseFacebook = (res) => {
     console.log(res);
     if (res.name) {
@@ -99,6 +88,30 @@ class App extends Component {
     axios.post(`${process.env.REACT_APP_BACKEND_URI}/login`, {
       ...res,
     })
+  }
+
+  saveSnip = (name) => {
+    if (!this.state.inputText) {
+      this.msg.error('No Input DickHead');
+    } else if (!name.value) {
+      this.msg.error(`Can't save a snippet with no title! Please enter one!`);
+    } else {
+      axios.post(`${process.env.REACT_APP_BACKEND_URI}/snippet/save`, {
+        code: this.state.inputText,
+        userId: this.state.id,
+        title: name.value
+      }).then(res => {
+      console.log(res);
+      if (res.status === 203) {
+        this.msg.error('Snippet title is taken, please pick another one!');
+      } else if (res.status === 200) {
+        this.msg.success('Saved!')
+        name.value = ''
+      } else {
+        this.msg.error('Server Down')
+      }
+      })
+    }
   }
 
   //=============================================== REDERING
@@ -132,58 +145,9 @@ class App extends Component {
     }
   }
 
-  responseFacebook = (res) => {
-    console.log(res);
-    if (res.name) {
-      this.setState({
-        name: res.name,
-        id: res.id
-        })
-      this.sendToBack(res);
-    }
-  }
-
-  sendToBack = (res) => {
-    console.log('send', res);
-    axios.post(process.env.BACKEND_URI + '/login', {
-      ...res,
-    })
-  }
-  saveSnip = () => {
-      if (!this.state.inputText) {
-        alert(`Can't save empty code! Please write something`);
-      } else if (!this.refs.name.value) {
-        alert(`Can't save a snippet with no title! Please enter one!`);
-      } else {
-      axios.post(process.env.BACKEND_URI + '/snippet/save', {
-        code: this.state.inputText,
-        userId: this.state.id,
-        title: this.refs.name.value
-      }).then(res => {
-      console.log(res);
-      if (res.status === 203) {
-        alert('Snippet title is taken, please pick another one!');
-      } else {
-        this.refs.name.value = ''
-      }
-      })
-    }
-  }
-
   renderSave = () => {
-    return this.state.id ?
-    <div className = "bSave">
-      <input
-        ref="name"
-        className="snippetName"
-        placeholder="Enter snippet Name"
-      />
-      <button
-        ref = "savingBut"
-        onClick={this.saveSnip}>
-        Save!
-      </button>
-    </div> : <div></div>
+    return this.state.id && this.state.selected === 'editor' ?
+      <Save func={this.saveSnip.bind(this)} /> : null
   }
 
   render() {
@@ -243,22 +207,25 @@ class App extends Component {
                 convoluted JavaScript into plain human language.
               </p>
             </div>
+            <AlertContainer ref={a => this.msg = a} {...this.alertOptions} />
             <div className="TabSelector">
-              <div
-                className={`Tab${this.state.selected === 'editor'
-                  ? ' Selected'
-                  : ''}`}
-                onClick={() => this.handleTabSelection('editor')}>editor</div>
-              <div
-                className={`Tab${this.state.selected === 'upload'
-                  ? ' Selected'
-                  : ''}`}
-                onClick={() => this.handleTabSelection('upload')}>upload</div>
-              <div
-                className={`Tab${this.state.selected === 'snippets'
-                  ? ' Selected'
-                  : ''}`}
-                onClick={() => this.handleTabSelection('snippets')}>snippets</div>
+              <div className="Tabs">
+                <div
+                  className={`Tab${this.state.selected === 'editor'
+                    ? ' Selected'
+                    : ''}`}
+                  onClick={() => this.handleTabSelection('editor')}>editor</div>
+                <div
+                  className={`Tab${this.state.selected === 'upload'
+                    ? ' Selected'
+                    : ''}`}
+                  onClick={() => this.handleTabSelection('upload')}>upload</div>
+                <div
+                  className={`Tab${this.state.selected === 'snippets'
+                    ? ' Selected'
+                    : ''}`}
+                  onClick={() => this.handleTabSelection('snippets')}>snippets</div>
+                </div>
               {this.renderSave()}
             </div>
             <div className="Form">
