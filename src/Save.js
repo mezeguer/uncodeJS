@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import ReactFileReader from 'react-file-reader';
 
 import './App.css';
+import { translations } from './assets/translations/config';
 
 class Save extends Component {
 
@@ -14,7 +15,7 @@ class Save extends Component {
         <input
           ref={el => this.value = el}
           className="snippetName"
-          placeholder="ENTER SNIPPET NAME"
+          placeholder={translations.dictionary.save_snpt_name_placeholder}
         />
         <button
           ref = "savingBut"

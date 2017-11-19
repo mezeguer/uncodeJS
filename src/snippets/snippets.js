@@ -3,6 +3,7 @@ import axios from 'axios';
 import './snippets.css';
 
 import { Snip } from './snip';
+import { translations } from '../assets/translations/config';
 
 export class Snippets extends Component {
   constructor () {
@@ -33,7 +34,7 @@ export class Snippets extends Component {
   render() {
     return (
       <div className="snippets-container">
-        <div className="snippets-title"><h3>Your Code Snippets</h3></div>
+        <div className="snippets-title"><h3>{translations.dictionary.snippets_explanation}</h3></div>
         <div className="snippets-body">
           {this.renderSnips()}
         </div>

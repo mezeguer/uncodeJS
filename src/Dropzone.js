@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import ReactFileReader from 'react-file-reader';
 
 import './App.css';
+import { translations } from './assets/translations/config';
 
 class DragDrop extends Component {
 
@@ -14,7 +15,7 @@ class DragDrop extends Component {
     }
     console.log(reader.readAsText(files[0]));
   } catch (e) {
-      alert('Invalid file type, please upload a JavaScript file');
+      alert(translations.dictionary.drop_zone_invalid_file_type);
     }
   }
 
@@ -28,7 +29,7 @@ class DragDrop extends Component {
             color: 'grey',
             textAlign: 'center',
             fontWeight: '300'
-          }}>select a file or drag and drop one into the button to analyze it in uncode.js</p>
+          }}>{translations.dictionary.drop_zone_explanation}</p>
           <ReactFileReader
             handleFiles={this.handleFileChange}
             fileTypes={'.js'}>
@@ -37,7 +38,7 @@ class DragDrop extends Component {
                 width: '100px',
                 fontFamily: 'Roboto',
                 fontWeight: '300'
-              }}>UPLOAD</button>
+              }}>{translations.dictionary.drop_zone_upload_button}</button>
           </ReactFileReader>
         </div>
       </div>
