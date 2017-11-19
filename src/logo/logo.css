@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css?family=Source+Code+Pro');
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+.container {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: flex-start;
+  -webkit-tap-highlight-color:transparent;
+}
+.subcontainer{
+  display: flex;
+  overflow-x: hidden;
+  align-items: center;
+  justify-content: flex-start;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.2em;
+  letter-spacing: 3px;
+  height: 60px;
+  -webkit-tap-highlight-color:transparent;
+}
+.logo-lander {
+  display: flex;
+  overflow-x: hidden;
+  margin-top: 5px;
+  margin-left: 70px;
+  height: 55px;
+  font-family: 'Source Code Pro', monospace;
+  color: #fff;
+}
+@keyframes boxxy {
+  0% { transform: rotate(0deg); }
+  12.5% { transform: rotate(-7deg); }
+  37.5% { transform: rotate(7deg); }
+  50% { transform: rotate(0deg); }
+}
+@keyframes contract {
+  0% { width: 100%; margin-left:70px; }
+  100% { width: 0px; margin-left:30px;}
+}
+@keyframes expand {
+  0% { width: 0px; margin-left:-100px}
+  100% { width: 100%; margin-left:0px}
+}
+.logo {
+  position: absolute;
+  z-index:1000;
+  height: 50px;
+}
+.logoback {
+  position: absolute;
+  z-index:-1;
+  /*animation: boxxy 5s ease-in-out infinite;*/
+  height: 50px;
+}
+.logo-uncode {
+  margin-left: 70px;
+  color: #fff;
+}
+.logo-js {
+  color: #ccc;
+}
