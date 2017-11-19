@@ -168,8 +168,10 @@ h1 {
   overflow: hidden;
   font-family: Courier New, Courier, monospace;
   font-size: 12px;
+  line-height: 14px;
   background-color: white;
   text-align: left;
+  /* padding-top: 3px; */
 }
 
 .Text:focus {
@@ -211,6 +213,9 @@ textarea {
   background-color: white;
   font-family: Courier New, Courier, monospace;
   font-size: 12px;
+  line-height: 14px;
+  padding-top: 3px;
+  padding-bottom: 1px;
   border-right: 1px solid grey;
 }
 
