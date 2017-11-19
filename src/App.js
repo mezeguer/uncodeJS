@@ -89,7 +89,7 @@ class App extends Component {
 
   sendToBack = (res) => {
     console.log('send', res);
-    axios.post(`${process.env.REACT_APP_BACKEND_URI}/login`, {
+    axios.post(`${process.env.REACT_APP_BACKEND_URI}login`, {
       ...res,
     })
   }
@@ -100,7 +100,7 @@ class App extends Component {
     } else if (!name.value) {
       this.msg.error(translations.dictionary.app_no_title_snpt_err_msg);
     } else {
-      axios.post(`${process.env.REACT_APP_BACKEND_URI}/snippet/save`, {
+      axios.post(`${process.env.REACT_APP_BACKEND_URI}snippet/save`, {
         code: this.state.inputText,
         userId: this.state.id,
         title: name.value
