@@ -16,6 +16,7 @@ import Save from './Save';
 import DragDrop from './Dropzone';
 
 import './App.css';
+import { translations } from './assets/translations/config';
 
 class App extends Component {
 
@@ -45,12 +46,13 @@ class App extends Component {
   componentDidMount() {
     this.socket.on('receive', (data) => {
       if (data) this.setState({outputText: data});
-      else this.setState({outputText: 'come on! Keep typing! :)'});
+      else this.setState({outputText: `${translations.dictionary.app_empty_output_msg}`});
     })
   }
 
   handleLanguageChange = async (val) => {
     await this.setState({language: val});
+    translations.setDictionary(this.state.language);
     this.handleTextChange(this.state.inputText);
   }
 
@@ -94,9 +96,9 @@ class App extends Component {
 
   saveSnip = (name) => {
     if (!this.state.inputText) {
-      this.msg.error('No Input DickHead');
+      this.msg.error(translations.dictionary.app_empty_input_err_msg);
     } else if (!name.value) {
-      this.msg.error(`Can't save a snippet with no title! Please enter one!`);
+      this.msg.error(translations.dictionary.app_no_title_snpt_err_msg);
     } else {
       axios.post(`${process.env.REACT_APP_BACKEND_URI}/snippet/save`, {
         code: this.state.inputText,
@@ -105,12 +107,12 @@ class App extends Component {
       }).then(res => {
       console.log(res);
       if (res.status === 203) {
-        this.msg.error('Snippet title is taken, please pick another one!');
+        this.msg.error(translations.dictionary.app_title_taken_snpt_err_msg);
       } else if (res.status === 200) {
-        this.msg.success('Saved!')
+        this.msg.success(translations.dictionary.app_saved_snpt_msg)
         name.value = ''
       } else {
-        this.msg.error('Server Down')
+        this.msg.error(translations.dictionary.app_server_down_err_msg)
       }
       })
     }
@@ -133,7 +135,7 @@ class App extends Component {
         <Text
           val={this.inputText}
           func={this.handleTextChange.bind(this)}
-          placeholder={"Insert code here"}
+          placeholder={translations.dictionary.app_input_area_placeholder}
         />
       )
     } else if (this.state.selected === 'upload') {
@@ -176,7 +178,7 @@ class App extends Component {
                 />
               )}
               <div className="about-button" onClick={this.handleAboutClick} style={{marginLeft:'20px'}}>
-                <p className="about-button-text">About</p>
+                <p className="about-button-text">{translations.dictionary.app_about}</p>
               </div>
               <div style={{
                 display: 'flex',
@@ -207,8 +209,7 @@ class App extends Component {
                 textAlign: 'center',
                 width: '100%'
               }}>
-                Welcome to uncode! The first platform that simplifies and translates
-                convoluted JavaScript into plain human language.
+                {translations.dictionary.app_explanation}
               </p>
             </div>
             <AlertContainer ref={a => this.msg = a} {...this.alertOptions} />
@@ -218,17 +219,17 @@ class App extends Component {
                   className={`Tab${this.state.selected === 'editor'
                     ? ' Selected'
                     : ''}`}
-                  onClick={() => this.handleTabSelection('editor')}>editor</div>
+                  onClick={() => this.handleTabSelection('editor')}>{translations.dictionary.app_editor_button}</div>
                 <div
                   className={`Tab${this.state.selected === 'upload'
                     ? ' Selected'
                     : ''}`}
-                  onClick={() => this.handleTabSelection('upload')}>upload</div>
+                  onClick={() => this.handleTabSelection('upload')}>{translations.dictionary.app_upload_button}</div>
                 <div
                   className={`Tab${this.state.selected === 'snippets'
                     ? ' Selected'
                     : ''}`}
-                  onClick={() => this.handleTabSelection('snippets')}>snippets</div>
+                  onClick={() => this.handleTabSelection('snippets')}>{translations.dictionary.app_snippets_button}</div>
                 </div>
               {this.renderSave()}
             </div>
@@ -239,7 +240,7 @@ class App extends Component {
                 <textarea
                   className="Text"
                   value={this.state.outputText}
-                  placeholder="OUTPUT GOES HERE"/>
+                  placeholder={translations.dictionary.app_output_area_placeholder}/>
               </div>
             </div>
           </div>

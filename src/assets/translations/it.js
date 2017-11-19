@@ -1,0 +1,31 @@
+const italianDictionary = {
+  "app_empty_output_msg": "Dai, continua a provarci! :)",
+  "app_empty_input_err_msg": "Nessun input",
+  "app_no_title_snpt_err_msg": "Non puoi salvare uno snippet senza titolo. Perfavore inseriscine uno!",
+  "app_title_taken_snpt_err_msg": "Il titolo dello snippet è occupato, prova con un altro",
+  "app_saved_snpt_msg": "Salvato!",
+  "app_server_down_err_msg": "Server offline",
+  "app_input_area_placeholder": "Inserisci qui il codice",
+  "app_output_area_placeholder": "L'output va qui",
+  "app_welcome": "Benvenuto",
+  "app_about": "Informazioni",
+  "app_explanation": "Benvenuto su uncode! La prima piattaforma che semplifica e traduce JavaScript nella tua lingua parlata.",
+  "app_editor_button": "editor",
+  "app_upload_button": "carica",
+  "app_snippets_button": "snippets",
+  "drop_zone_invalid_file_type": "Tipo di file invalido, perfavore carica un file JavaScript",
+  "drop_zone_explanation": "seleziona un file o trascinalo nel bottone per analizzarlo su uncode.js",
+  "drop_zone_upload_button": "CARICA",
+  "save_snpt_name_placeholder": "Inserisci il nome dello snippet",
+  "snippets_explanation": "I tuoi snippet",
+  "about_title": "FATTO DA PROGRAMMATORI PER FUTURI PROGRAMMATORI",
+  "about_text_1": "uncode.js e un tool per imparare a programmare in JavaScript nel modo piú semplice possibile: traducendo il tuo codice nella tua lingua parlata. Guarda l'esempio qui sotto per capire come funziona.",
+  "about_example_1": "var foo = 10 + 5;",
+  "about_example_2": "é tradotto in",
+  "about_example_3": "1 var variabile foo é assegnata a 10 piú 5",
+  "about_unsupported_title": "Prossimamente disponibile: ",
+  "about_text_2": "In altre parole: puoi semplicemente iniziare a programmare, copiare il codice o trascinare un file, e guarda come il nostro algoritmo lo converte in inglese, spagnolo o italiano, e leggi cosa hai appena tradotto. É veramente cosi semplice!",
+  "about_the_team": "Il Team:"
+}
+
+export {italianDictionary};

@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 
 import './App.css';
+import { translations } from './assets/translations/config';
+
 const _ = require('lodash');
 
 class About extends Component {
@@ -49,16 +51,13 @@ class About extends Component {
           <div className="Overlay" onClick={this.props.handleDisplay}>
           </div>
           <div className="about-container">
-            <h1 className="about-title">MADE BY DEVELOPERS FOR FUTURE DEVELOPERS</h1>
+            <h1 className="about-title">{translations.dictionary.about_title}</h1>
             <img
               alt="People"
               src={require('./assets/icons8-multicultural-people-100.png')}
               style={{height:'80px'}}/>
             <h3 className="about-text">
-              uncode.js is a tool for learning how to code JavaScript in the friendliest 
-              way possible: converting code into your own, (generally) more comfortable 
-              and easy to understand native language. Check the example below to understand 
-              how it works.
+              {translations.dictionary.about_text_1}
             </h3>
             <div style={{
               display: 'flex',
@@ -67,12 +66,12 @@ class About extends Component {
               width: '800px',
             }}>
               <div className="Example">
-                <code>var foo = 10 + 5;</code>
-                <p style={{color: '#46598F', width: '100%', textAlign: 'center', fontWeight: '400'}}>is uncoded into</p>
-                <code>1 var variable foo is assigned to 10 plus 5</code>
+                <code>{translations.dictionary.about_example_1}</code>
+                <p style={{color: '#46598F', width: '100%', textAlign: 'center', fontWeight: '400'}}>{translations.dictionary.about_example_2}</p>
+                <code>{translations.dictionary.about_example_3}</code>
               </div>
               <div className="Example">
-              <p style={{color: '#46598F', width: '100%', textAlign: 'center', fontWeight: '400', marginBottom:'0'}}>currently unsupported expressions</p>
+              <p style={{color: '#46598F', width: '100%', textAlign: 'center', fontWeight: '400', marginBottom:'0'}}>{translations.dictionary.about_unsupported_title}</p>
                 <ul className="UnsupportedList">
                   <li><code>try/catch/throw</code></li>
                   <li><code>export/import</code></li>
@@ -86,12 +85,9 @@ class About extends Component {
               </div>
             </div>
             <h3 className="about-text">
-              In other words: simply start coding, copy in some code from elsewhere or 
-              drag and drop a text file in, watch our algorithm convert it into plain old 
-              english, spanish or italian (by selecting your language in the top right corner) 
-              and read what you just typed in terms anyone can understand. 
-              It really is that simple!</h3>
-            <h3 className="about-text" style={{textAlign: 'center', fontWeight: '400'}}>The Team: </h3>
+              {translations.dictionary.about_text_2}
+            </h3>
+            <h3 className="about-text" style={{textAlign: 'center', fontWeight: '400'}}>{translations.dictionary.about_the_team} </h3>
             <div style={{display:'flex', flexFlow:'row nowrap',justifyContent:'space-around', paddingBottom:'5vh', width:'40%'}}>
               {this.renderTeam()}
             </div>

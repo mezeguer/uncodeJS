@@ -1,0 +1,31 @@
+const spanishDictionary = {
+  "app_empty_output_msg": "venga, sigue escribiendo! :)",
+  "app_empty_input_err_msg": "Snippet sin código",
+  "app_no_title_snpt_err_msg": "Introduce un título para guardar el snippet",
+  "app_title_taken_snpt_err_msg": "Este título de snippet ya existe, por favor introduce otro",
+  "app_saved_snpt_msg": "Guardado!",
+  "app_server_down_err_msg": "Error en el servidor",
+  "app_input_area_placeholder": "Introduce tu código aquí",
+  "app_output_area_placeholder": "EL RESULTADO APARECERÁ AQUÍ",
+  "app_welcome": "Bienvenido",
+  "app_about": "SOBRE UNCODE",
+  "app_explanation": "Bienvenido a uncode! La primera plataforma que simplifica y traduce JavaScript complicado a lenguaje humano",
+  "app_editor_button": "editor",
+  "app_upload_button": "subida",
+  "app_snippets_button": "snippets",
+  "drop_zone_invalid_file_type": "extensión de archivo inválida, por favor introduce un archivo .js",
+  "drop_zone_explanation": "selecciona o arrastra un archivo para anlizarlo en uncode.js",
+  "drop_zone_upload_button": "SUBIR",
+  "save_snpt_name_placeholder": "INTRODUCE EL NOMBRE DEL SNIPPET",
+  "snippets_explanation": "Tus Snippets de Código",
+  "about_title": "HECHA POR DESARROLLADORES PARA FUTUROS DESARROLLADORES",
+  "about_text_1": "uncode.js es una herramienta para aprender a programar en JavaScript de la forma más sencilla posible: conviritiendo código a tu lengua nativa. Mira el ejemplo a continuación para ver cómo funciona.",
+  "about_example_1": "var foo = 10 + 5;",
+  "about_example_2": "se convierte a",
+  "about_example_3": "1 variable var foo asignada a 10 mas 5",
+  "about_unsupported_title": "expresiones no soportadas todavía",
+  "about_text_2": "En otras palabras: simplemente empieza a programar, copia código de otra parte o arrastra un archivo .js, observa cómo nuestro algoritmo lo convierte a inglés, español o italiano (seleccionando tu idioma en la esquina superior derecha) y lee lo que acabas de escribir en términos que cualquiera puede entender. Verdaderamente es así de sencillo!",
+  "about_the_team": "El Equipo:"
+}
+
+export {spanishDictionary};
