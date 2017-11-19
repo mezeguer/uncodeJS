@@ -1,0 +1,5 @@
+const italianTranslations = {
+
+}
+
+export italianTranslations;

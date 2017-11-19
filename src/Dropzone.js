@@ -14,7 +14,7 @@ class DragDrop extends Component {
     }
     console.log(reader.readAsText(files[0]));
   } catch (e) {
-    alert('Invalid file type, please upload a JavaScript file');
+      alert('Invalid file type, please upload a JavaScript file');
     }
   }
 
