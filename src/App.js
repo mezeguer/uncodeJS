@@ -213,6 +213,7 @@ class App extends Component {
             <div className="Explanation">
               <p style={{
                 textAlign: 'center',
+                fontSize: '30px',
                 width: '100%'
               }}>
                 Welcome to uncode! The first platform that simplifies and translates
