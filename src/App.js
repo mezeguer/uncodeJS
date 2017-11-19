@@ -150,6 +150,18 @@ class App extends Component {
       <Save func={this.saveSnip.bind(this)} /> : null
   }
 
+  renderSnip = () => {
+    return this.state.id && this.state.selected === 'editor' ?
+      <div>
+        <div
+          className={`Tab${this.state.selected === 'snippets'
+            ? ' Selected'
+            : ''}`}
+          onClick={() => this.handleTabSelection('snippets')}> snippets
+        </div>
+      </div> : null
+  }
+
   render() {
     return (
       <div className="App">
@@ -220,12 +232,8 @@ class App extends Component {
                     ? ' Selected'
                     : ''}`}
                   onClick={() => this.handleTabSelection('upload')}>upload</div>
-                <div
-                  className={`Tab${this.state.selected === 'snippets'
-                    ? ' Selected'
-                    : ''}`}
-                  onClick={() => this.handleTabSelection('snippets')}>snippets</div>
-                </div>
+                {this.renderSnip()}
+              </div>
               {this.renderSave()}
             </div>
             <div className="Form">
