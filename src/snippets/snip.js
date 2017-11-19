@@ -10,6 +10,7 @@ export class Snip extends Component {
       <div className="snip-container">
         <p className="snip-title">{this.props.props.title}</p>
         <div style={{width:'100%', backgroundColor:'white', display:'flex', alignItems:'center', justifyContent:'center'}}><SnipIcon /></div>
+        <p style={{color:'white', fontSize:'8px'}}>{this.props.props.storedAt}</p>
       </div>
     );
   }

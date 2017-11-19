@@ -141,7 +141,7 @@ class App extends Component {
         />
       )
     } else {
-      return (<Snippets id={this.state.id}/>)
+      return (<Snippets fire={this.handleFileLoad.bind(this)} language={this.state.language} value={this.state.value} socket={this.socket} id={this.state.id}/>)
     }
   }
 

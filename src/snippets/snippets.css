@@ -2,15 +2,15 @@
   display: flex;
   flex-direction: column;
   height: 100%;
-  width: 100%;
+  width: 50%;
   background-color: #fff;
 }
 .snippets-title {
-  width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  padding: 0px 10px 10px 10px;
+  align-items: center;
+  padding: 0px 10px 0px 10px;
 }
 .snippets-body {
   width: 100%;
@@ -21,7 +21,7 @@
   flex-flow: row wrap;
 }
 .snip-container {
-  margin: 5px;
+  margin: 10px;
   width: 150px;
   height: 150px;
   background-color: rgba(64, 90, 147, 0.9);
@@ -59,16 +59,18 @@
   }
 }
 .snip-bg {
+  transform: scale(0.97);
   position: relative;
   width: 98px;
   left:1px;
   top:17px;
-  height: 68px;
+  height: 65px;
   background: linear-gradient(to right, rgba(64, 90, 147, 1), rgba(64, 90, 147, 0.6), rgba(64, 90, 147, 1));
   animation: 3s scroller linear infinite;
 }
 .over {
-  top:15px;
+  transform: scale(0.97);
+  top:17px;
   float: right;
   margin-top: -70px;
   overflow: visible;
@@ -79,4 +81,9 @@
   position: relative;
   /*overflow: hidden;*/
   height:100px;
+}
+.find-button:active {
+  border-color: black;
+  color: black;
+  background-color: rgba(240, 219, 79, 1);
 }
