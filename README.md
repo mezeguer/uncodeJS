@@ -17,7 +17,7 @@ Uncode also allows code snippets to be uploaded in click of a button (or by drag
 
 ### Prerequisites
 
-In order to test this web-app you will need to run the compatible backend, visit [dc2.0-server](https://github.com/vidocco/dc2.0-server) and follow the initialization steps on that repo too.
+In order to test this web-app you will need to run the compatible backend, visit [uncodeJS-server](https://github.com/vidocco/uncodeJS-server) and follow the initialization steps on that repo too.
 
 
 ### Installing
