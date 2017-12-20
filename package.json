@@ -1,15 +1,15 @@
 {
-  "name": "dc2.0-client",
+  "name": "uncodejs-client",
   "version": "2.0.0",
   "description": "",
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/MPastorMeseguer/dc2.0-client.git"
+    "url": "git+https://github.com/MPastorMeseguer/uncodeJS-client.git"
   },
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/MPastorMeseguer/dc2.0-client/issues"
+    "url": "https://github.com/MPastorMeseguer/uncodeJS-client/issues"
   },
   "dependencies": {
     "axios": "^0.17.1",
