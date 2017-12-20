@@ -6,7 +6,7 @@ This product was made in 48 hours for the 2017 Facebook Global Community Challen
 
 
 ## Uncode.js
-Welcome to the github repo for [Uncode.js](http://uncodejs.herokuapp.com/)!
+Welcome to the github repo for [uncode.js](http://uncodejs.herokuapp.com/)!
 
 Uncode translates JavaScript into human readable languages in real time, just as you are typing it. In this way, the platform  gives you a unique insight into how code is structured and how it works by allowing the you to experiment and see the result.
 
@@ -22,8 +22,8 @@ In order to test this web-app you will need to run the compatible backend, visit
 
 ### Installing
 
-- Clone this repo `git clone https://github.com/vidocco/dc2.0-client`
-- Move into the new folder `cd dc2.0-client`
+- Clone this repo `git clone https://github.com/vidocco/uncodeJS-client`
+- Move into the new folder `cd uncodeJS-client`
 - Install all dependencies`npm install`
 - To start the front-end run `npm start`. This activates the react start script and will display the front-end, you will need to have the back-end live in order to test out functionality.
 
